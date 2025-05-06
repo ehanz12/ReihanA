@@ -1,128 +1,262 @@
-*,html{
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s, color 0.2s;
 }
 
-/* Navbar Styles */
+:root {
+    --primary: #2563EB;
+    --primary-dark: #1E40AF;
+    --dark: #1E293B;
+    --darker: #0F172A;
+    --light: #F8FAFC;
+    --lighter: #FFFFFF;
+    --gray: #64748B;
+    --gray-light: #E2E8F0;
+}
+
+body {
+    background-color: var(--lighter);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+body.dark-mode {
+    background-color: var(--darker);
+    color: var(--gray-light);
+}
+
+/* Navbar */
 .navbar {
-    background-color: #ffffff;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--lighter);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
 }
 
-.logo a {
-    color: #333;
-    text-decoration: none;
+.dark-mode .navbar {
+    background-color: var(--dark);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.dark-mode .logo {
+    color: var(--primary-dark);
 }
 
 .nav-links {
     display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin-left: 2rem;
+    gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
-    color: #333;
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #007bff;
-}
-
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.nav-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 2px 0;
+    color: var(--dark);
+    font-weight: 500;
     transition: 0.3s;
 }
 
-/* Responsive Design */
-/* Navbar Styles untuk Mobile */
-@media screen and (max-width: 768px) {
-    .nav-toggle {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        padding: 0;
-        flex-direction: column;
-        text-align: center;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease-in-out;
-        opacity: 0;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    .nav-links li {
-        margin: 0;
-        padding: 1rem;
-        border-bottom: 1px solid #eee;
-    }
-
-    .nav-links li:last-child {
-        border-bottom: none;
-    }
-
-    /* Animasi untuk hamburger menu */
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-
-    .nav-toggle span {
-        transition: all 0.3s ease-in-out;
-    }
+.dark-mode .nav-links a {
+    color: var(--gray-light);
 }
 
-/* =================================================================================================== */
+.nav-links a:hover {
+    color: var(--primary);
+}
 
-body {
-    background-color: #6666;
+.dark-mode .nav-links a:hover {
+    color: var(--primary-dark);
+}
+
+.cta-button {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.dark-mode .cta-button {
+    background-color: var(--primary-dark);
+}
+
+.menu-toggle, .dark-mode-toggle {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--dark);
+}
+
+.dark-mode .menu-toggle, 
+.dark-mode .dark-mode-toggle {
+    color: var(--gray-light);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero {
+    padding: 8rem 5% 4rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.dark-mode .hero h1 {
+    color: var(--lighter);
+}
+
+.hero p {
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.dark-mode .hero p {
+    color: var(--gray-light);
+}
+
+/* Projects Grid */
+.projects {
+    padding: 4rem 5%;
+}
+
+.projects h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.dark-mode .projects h2 {
+    color: var(--lighter);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--lighter);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.dark-mode .project-card {
+    background: var(--dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-img {
+    height: 200px;
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.dark-mode .project-info h3 {
+    color: var(--lighter);
+}
+
+.project-info p {
+    color: var(--gray);
+}
+
+.dark-mode .project-info p {
+    color: var(--gray-light);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tag {
+    background-color: var(--light);
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.dark-mode .tag {
+    background-color: var(--darker);
+    color: var(--primary-dark);
+}
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--lighter);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        transition: 0.3s;
+    }
+    
+    .dark-mode .nav-links {
+        background: var(--dark);
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
