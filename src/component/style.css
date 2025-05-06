@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
     transition: background-color 0.3s, color 0.2s;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -51,6 +52,7 @@ body.dark-mode {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
+    text-decoration: none;
 }
 
 .dark-mode .logo {
@@ -131,6 +133,10 @@ body.dark-mode {
     color: var(--gray);
     max-width: 600px;
     margin: 0 auto 2rem;
+}
+
+.hero a {
+    text-decoration: none;
 }
 
 .dark-mode .hero p {
