@@ -92,6 +92,26 @@ body.dark-mode {
     font-weight: 600;
 }
 
+
+
+.description button {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding: 1.7rem 2.6rem;
+    margin-top: 30px;
+    border: none;
+}
+
+button a {
+    font-size: 27px;
+    color: white;
+}
+
 .dark-mode .cta-button {
     background-color: var(--primary-dark);
 }
@@ -114,13 +134,26 @@ body.dark-mode {
 }
 
 /* Hero Section */
+.hero img {
+    width: 500px;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
 .hero {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: space-around;
+    align-items: center;
     padding: 8rem 5% 4rem;
-    text-align: center;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
     margin-bottom: 1rem;
     color: var(--dark);
 }
@@ -129,11 +162,18 @@ body.dark-mode {
     color: var(--lighter);
 }
 
-.hero p {
+.hero .description p {
     color: var(--gray);
     max-width: 600px;
-    margin: 0 auto 2rem;
+    font-size: 25px;
 }
+
+.hero .description {
+    text-align: center;
+}
+
+
+
 
 .hero a {
     text-decoration: none;
